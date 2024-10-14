@@ -121,7 +121,6 @@ class ColorRojo extends Colores {
   }
 }
 
-
 //.....................................extensiones..........................................
 //Las extensiones en Dart permiten agregar nuevas funcionalidades a clases
 //existentes sin necesidad de modificar su código original.
@@ -177,4 +176,60 @@ void week() {
   }
 }
 
+//..........................................MIXIS.............................................................
+//Used for add to exist class
+mixin fly {
+  void volar() {
+    print('The object can fly.');
+  }
+}
 
+class bird with fly {
+  void sing() {
+    print('The bird is singing.');
+  }
+}
+
+class sleep with fly {
+  void sleeping() {
+    print('The bird is sleeping.');
+  }
+}
+
+void callbird() {
+  sleep obfly = sleep();
+  obfly.sleeping();
+  obfly.volar();
+}
+
+//..........................................Factory Constructor.............................................................
+//It is used to control the creation of instances of a class
+
+class Persona {
+  String nombre;
+  int edad;
+
+  Persona._(this.nombre, this.edad); 
+
+  factory Persona(String nombre, int edad) {
+    if (edad < 0) {
+      return Persona._('Desconocido', 0); 
+    } else {
+      return Persona._(nombre, edad);
+    }
+  }
+}
+
+//..........................................Try-Catch.......................................
+//Driving exceptions and errors. That block only executed if they are a exception. 
+
+void exeptions() {
+  try {
+    int resultado = 10 ~/ 0; 
+    print('El resultado es: $resultado');
+  } catch (e) {
+    print('Ha ocurrido un error: $e');
+  } finally {
+    print('Fin del bloque try-catch.');
+  }
+}
