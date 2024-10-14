@@ -20,6 +20,10 @@ void main() {
 //Nthatclass . Call what i want
   obperro.hacerSonido();
 
+  print('----------------------Extension-------------------------');
+  callextension();
+
+  print('----------------------Enumerations-------------------------');
 }
 
 //Definicon de una clase:
@@ -77,8 +81,6 @@ class Perro extends animal {
   }
 }
 
-
-
 class colores {
   void cambiacolor() {
     print('esto debe cambiar de color');
@@ -108,5 +110,60 @@ abstract class Colores {
 
   void desaparece() {
     print("El color desaparece");
+  }
+}
+
+//.....................................extensiones..........................................
+//Las extensiones en Dart permiten agregar nuevas funcionalidades a clases
+//existentes sin necesidad de modificar su código original.
+
+extension StringExtensions on String {
+  // Método para contar vocales
+  int contarVocales() {
+    return this.split('').where((c) => 'aeiouAEIOU'.contains(c)).length;
+  }
+
+  String capitalizar() {
+    if (this.isEmpty) return this;
+    return this[0].toUpperCase() + this.substring(1);
+  }
+}
+
+void callextension() {
+  String texto = "hola mundo";
+  print(texto.contarVocales());
+  print(texto.capitalizar());
+}
+
+//.......................................Enumerations..................................................
+//It's used for when you want ti used the same values and you want to shores only used that.
+
+// Definimos una enumeración para los días de la semana
+enum days {
+  MONDAY,
+  TUESDAY,
+  WEDNESDAY,
+  TRUSDAY,
+  FRIDAY,
+  SATURDAY,
+  SUNDAY,
+}
+
+void week() {
+  days today = days.WEDNESDAY;
+
+  switch (today) {
+    case days.MONDAY:
+      print("It's the firts tday ofe the weekend :(");
+      break;
+    case days.WEDNESDAY:
+      print("It's Hump day!!!!!!!!!!!! ");
+      break;
+    case days.FRIDAY:
+      print("It's fridayyyyyyyyyyyyyyy");
+      break;
+    default:
+      print("other day");
+      break;
   }
 }
