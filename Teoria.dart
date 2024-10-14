@@ -24,6 +24,7 @@ void main() {
   callextension();
 
   print('----------------------Enumerations-------------------------');
+  week();
 }
 
 //Definicon de una clase:
@@ -113,6 +114,14 @@ abstract class Colores {
   }
 }
 
+class ColorRojo extends Colores {
+  @override
+  void cambiaColor() {
+    print('este color es rojo desde ColorRojo');
+  }
+}
+
+
 //.....................................extensiones..........................................
 //Las extensiones en Dart permiten agregar nuevas funcionalidades a clases
 //existentes sin necesidad de modificar su código original.
@@ -167,3 +176,5 @@ void week() {
       break;
   }
 }
+
+
