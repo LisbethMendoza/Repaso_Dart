@@ -7,7 +7,10 @@ void main() {
   ex1();
 
   print('--Ejercicio 2--');
-   ex2();
+  ex2();
+
+  print('--Ejercicio 2--');
+  ex3();
 }
 
 //-------------Ejercicio 1-------------------
@@ -49,13 +52,31 @@ void ex2() {
   obp.metodo();
 }
 
-//-------------Ejercicio 3------------------- 
-//Aserciones y Clases Abstractas 
+//-------------Ejercicio 3-------------------
+//Aserciones y Clases Abstractas
 //Define una clase abstracta Animal con un método comer(). Crea una subclase Perro que implemente este método.
 //Agrega una aserción en el constructor de Perro para asegurarte de que la edad del perro sea mayor que 0.
 
+abstract class Animal {
+  void comer();
+}
 
+class Perro extends Animal {
+  String nombre;
+  int edad;
+  Perro(this.nombre, this.edad)
+      : assert(edad > 0, 'La edad no puede ser negativa');
+  @override
+  void comer() {
+    print("Estoy comiendo!!!");
+  }
+}
 
+void ex3() {
+  Perro perro = Perro('Rex', 5);
+  perro.comer();
+  print('Hola mi nombre es ${perro.nombre} y tengo ${perro.edad} !!!!!!');
+}
 
 //-------------Ejercicio 4-------------------
 
